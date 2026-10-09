@@ -7,8 +7,6 @@ const SITE = {
   chartAddress: "0x740e35047419d02dc642ba8c78719bdb41907b99",
 };
 
-const SOL_MINT = "So11111111111111111111111111111111111111112";
-
 function isRealCa(value) {
   const ca = (value || "").trim();
   return ca.length > 0 && ca.toUpperCase() !== "TBA";
@@ -36,7 +34,7 @@ function applySite() {
   });
 
   const buyUrl = real
-    ? `https://swap.pump.fun/?input=${SOL_MINT}&output=${encodeURIComponent(ca)}`
+    ? `https://app.uniswap.org/swap?chain=robinhood&outputCurrency=${encodeURIComponent(ca)}`
     : "";
   document.querySelectorAll("[data-buy]").forEach((node) => setLink(node, buyUrl));
 
